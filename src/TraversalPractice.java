@@ -80,8 +80,7 @@ public class TraversalPractice {
    */
   public static int numLevels(Node<?> node) {
     if (node == null) return 0;
-    if (numLevels(node.left) > numLevels(node.right)) return 1 + numLevels(node.left);
-    else return 1 + numLevels(node.right); 
+    return 1 + Math.max(numLevels(node.left), numLevels(node.right));
   }
 
   public static void main(String[] args) {
