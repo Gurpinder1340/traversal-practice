@@ -60,9 +60,14 @@ public class TraversalPractice {
    * @return the max value
    */
   public static int maxVal(Node<Integer> node) {
-    if(node==null) return 0;
-    int maxVal = maxVal(node.left) > maxVal(node.right) ? maxVal(node.left) : maxVal(node.right);
-    return maxVal > node.value ? maxVal : node.value;
+      if (node == null) return 0;
+
+      int leftMax = maxVal(node.left);
+      int rightMax = maxVal(node.right);
+
+      int maxChild = Math.max(leftMax, rightMax);
+
+      return Math.max(node.value, maxChild);
   }
 
   /**
@@ -90,7 +95,11 @@ public class TraversalPractice {
 
      // Replace the below line to create a tree 
      // as represented in the diagram above
-     Node<Integer> smallTree = null;
+     Node<Integer> smallTree = new Node<>(99,
+      new Node<>(45, new Node<>(9,null,null),new Node<>(5, null, null)),
+      new Node<>(82,null,new Node<>(16,null,null))
+     );
+     
 
 
     /*
